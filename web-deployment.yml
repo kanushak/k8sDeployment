@@ -1,0 +1,26 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name:  web-app
+   labels:
+     app:  web-app
+ spec:
+   selector:
+     matchLabels:
+       app: web-app
+   replicas: 2
+   strategy:
+     rollingUpdate:
+       maxSurge: 25%
+       maxUnavailable: 25%
+     type: RollingUpdate
+   template:
+     metadata:
+       labels:
+         app:  web-app
+     spec:
+       containers:
+       - name:  web-app
+         image:  anusha8018/webserver
+         ports:
+           - containerPort: 80
