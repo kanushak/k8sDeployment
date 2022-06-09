@@ -20,7 +20,8 @@
          app:  web-app
      spec:
        containers:
+       imagePullPolicy: Always
        - name:  web-app
-         image:  anusha8018/webserver
+         image:  anusha8018/webserver:latest
          ports:
            - containerPort: 80
